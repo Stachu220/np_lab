@@ -96,7 +96,6 @@ function hide2cards(nr1, nr2){
     pairsLeft--;
     if(pairsLeft==0){
         window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
-        //$('.board').html('<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></a>');
     }
     lock=false;
     
