@@ -39,3 +39,46 @@ var turnCounter = 0;
 var visible_nr;
 var lock = false;
 var pairsLeft = 6;
+
+function revealCard(nr)
+{
+
+    var opacityValue=$('#c'+nr).css('opacity');
+    
+    if(!opacityValue==0 && lock==false)
+    {
+        //alert(nr);
+        lock=true;
+        var obraz='url(img/'+cards[nr]+")";
+        $('#c'+nr).css('background-image', obraz);
+        $('#c'+nr).addClass('cardA');
+
+
+
+
+        if(oneVisible==false) //jeśli jedna nie jest widoczna
+        { 
+            //first card
+            oneVisible = true; //jedna jest widoczna
+            visible_nr = nr; //przypisz do zmiennej numer widocznej pierwszej karty
+            lock=false;
+        }
+        else //jedna karta jest już widoczna
+        { 
+            //second card
+
+            if(cards[visible_nr]==cards[nr]){ //jeżeli pierwsza karta jest równa numerowi drugiej, jest para
+               setTimeout(function() {hide2cards(nr, visible_nr)}, 750);
+                
+            }
+            else //jeśli karty nie są takie same
+            {
+                setTimeout(hide, 1000);
+            }
+
+            turnCounter++;
+            $('.score').html('Turn counter: ' +turnCounter);
+            oneVisible=false;
+        }
+    }
+}
