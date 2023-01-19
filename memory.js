@@ -55,7 +55,15 @@ function revealCard(nr)
 
 
 
-
+        function hide(){
+            //alert("brak pary");
+            var obraz='url("img/karta.png")';
+            $('#c'+nr).css('background-image', obraz);
+            $('#c'+visible_nr).css('background-image', obraz);
+            $('#c'+nr).removeClass('cardA');
+            $('#c'+visible_nr).removeClass('cardA'); 
+            lock=false;
+        }
         if(oneVisible==false) //jeśli jedna nie jest widoczna
         { 
             //first card
@@ -82,3 +90,15 @@ function revealCard(nr)
         }
     }
 }
+function hide2cards(nr1, nr2){
+    $('#c'+nr1).css('opacity','0');
+    $('#c'+nr2).css('opacity','0');
+    pairsLeft--;
+    if(pairsLeft==0){
+        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+        //$('.board').html('<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></a>');
+    }
+    lock=false;
+    
+}
+
